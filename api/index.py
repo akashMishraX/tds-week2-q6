@@ -22,11 +22,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(current_dir, 'q-vercel-python.json')) as f:
     students_data = json.load(f)
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the Student Marks API. Use /api?name=X&name=Y to get marks."}
-
-
 @app.get("/api")
 async def get_marks(name: List[str] = Query(None)):
     """
